@@ -6,7 +6,7 @@ import numpy as np
 from flask import Flask, request
 import os
 
-bot_token = '983290518:AAHcEYCxdE-3QWEDjYLRLDq6XtfCXD03eOo'
+bot_token = '897203128:AAG62vz8NGvXRbjOZnmigwzh_jVouM2P9LE'
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
 @bot.message_handler(commands=['start'])  # welcome message handler
@@ -31,28 +31,28 @@ def at_converter(message):
 
 
 
-# @bot.message_handler(commands=['help'])  # help message handler
-# def send_welcome(message):
-#     bot.reply_to(message, 'ALPHA = FEATURES MAY NOT WORK')
-#
-# URL = requests.get('https://www.sharesansar.com/datewise-indices')
-# souped = BS(URL.content, 'html.parser')
-# table = souped.find('tbody') #works good till here
+@bot.message_handler(commands=['help'])  # help message handler
+def send_welcome(message):
+    bot.reply_to(message, 'ALPHA = FEATURES MAY NOT WORK')
+
+URL = requests.get('https://www.sharesansar.com/datewise-indices')
+souped = BS(URL.content, 'html.parser')
+table = souped.find('tbody') #works good till here
 # ######################
-# nepse_trfinder = table.find('tr')
-# #print(nepse_trfinder)
-# nepse_trfinder1 = nepse_trfinder.find_all('td')
-# single_row_data =[td.text.strip() for td in nepse_trfinder1]
-# # print(single_row_data)
-# final_data= pd.DataFrame([single_row_data],columns=['Index','Point','Number change','percentage'])
-#
+nepse_trfinder = table.find('tr')
+#print(nepse_trfinder)
+nepse_trfinder1 = nepse_trfinder.find_all('td')
+single_row_data =[td.text.strip() for td in nepse_trfinder1]
+# print(single_row_data)
+final_data= pd.DataFrame([single_row_data],columns=['Index','Point','Number change','percentage'])
+
 # @bot.message_handler(func= lambda msg: msg is not None)
 # def send_welcome(message):
 #     bot.reply_to(message,'Thank you for using this program')
 #
-# @bot.message_handler(commands=['nepse'])  # help message handler
-# def send_welcome(message):
-#     bot.reply_to(message, final_data)
+@bot.message_handler(commands=['nepse'])  # help message handler
+def send_welcome(message):
+    bot.reply_to(message, final_data)
 
 @server.route('/' + bot_token, methods=['POST'])
 def getMessage():
@@ -63,7 +63,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://stark-meadow-75987.herokuapp.com/' + bot_token)
+    bot.set_webhook(url='https://pure-sands-38023.herokuapp.com/' + bot_token)
     return "!", 200
 
 
