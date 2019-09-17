@@ -25,19 +25,19 @@ def send_welcome(message):
 def send_welcome(message):
     bot.reply_to(message,'Thank you for using this program')
 
-@bot.message_handler(commands=['nepse'])  # help message handler
-def send_welcome(message):
-    URL = requests.get('https://www.sharesansar.com/datewise-indices')
-    souped = BS(URL.content, 'html.parser')
-    table = souped.find('tbody')  # works good till here
-    # ######################
-    nepse_trfinder = table.find('tr')
-    # print(nepse_trfinder)
-    nepse_trfinder1 = nepse_trfinder.find_all('td')
-    single_row_data = [td.text.strip() for td in nepse_trfinder1]
-    # print(single_row_data)
-    final_data = pd.DataFrame([single_row_data], columns=['Index', 'Point', 'Number change', 'percentage'])
-    bot.reply_to(message, final_data)
+# @bot.message_handler(commands=['nepse'])  # help message handler
+# def send_welcome(message):
+#     URL = requests.get('https://www.sharesansar.com/datewise-indices')
+#     souped = BS(URL.content, 'html.parser')
+#     table = souped.find('tbody')  # works good till here
+#     # ######################
+#     nepse_trfinder = table.find('tr')
+#     # print(nepse_trfinder)
+#     nepse_trfinder1 = nepse_trfinder.find_all('td')
+#     single_row_data = [td.text.strip() for td in nepse_trfinder1]
+#     # print(single_row_data)
+#     final_data = pd.DataFrame([single_row_data], columns=['Index', 'Point', 'Number change', 'percentage'])
+#     bot.reply_to(message, final_data)
 
 @server.route('/' + bot_token, methods=['POST'])
 def getMessage():
