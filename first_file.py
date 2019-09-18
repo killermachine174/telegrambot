@@ -6,7 +6,7 @@ import numpy as np
 from flask import Flask, request
 import os
 
-bot_token = '897203128:AAG62vz8NGvXRbjOZnmigwzh_jVouM2P9LE'
+bot_token = '969659180:AAE28jSyt_Z1OMUinSgZENhl_JJ3leeilpU'
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
 @bot.message_handler(commands=['start'])  # welcome message handler
