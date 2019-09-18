@@ -47,7 +47,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://pure-sands-38023.herokuapp.com/' + bot_token)
+    bot.set_webhook(url='https://guarded-bayou-71387.herokuapp.com/ '  + bot_token)
     return "!", 200
 
 if __name__ == "__main__":
