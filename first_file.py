@@ -15,7 +15,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['sabin'])  # welcome message handler
 def send_welcome(message):
-    bot.reply_to(message, 'Sabin Loves Kripa')
+    bot.reply_to(message, 'Sabin Loves Icecream')
 
 @bot.message_handler(commands=['help'])  # help message handler
 def send_welcome(message):
